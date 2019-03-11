@@ -1,7 +1,8 @@
 import fastText
+import string
 
-def strip_formatting(string):
-    return string.lower().replace('.', '').replace(',', '').strip()
+def strip_formatting(text):
+    return text.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
 def classify_lyrics(lyrics):
   preprocessed_lyrics = list(map(strip_formatting, lyrics))
@@ -22,7 +23,7 @@ def classify_lyrics(lyrics):
     'artist': artist
   }
 
-lyrics = [' Like it\'s dynamite']
-print(classify_lyrics(lyrics))
+# lyrics = [' Like it\'s dynamite']
+# print(classify_lyrics(lyrics))
 
 # need to connect function to flask

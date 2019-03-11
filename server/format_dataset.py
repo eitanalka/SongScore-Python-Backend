@@ -13,7 +13,7 @@ lyrics_training_set = []
 # and create an array of 5 consecutive words from lyrics to train on
 for index, row in df.iterrows():
   lyrics_str = row['lyrics']
-  lyrics_str = lyrics_str.lower().replace('.', '').replace(',', '')
+  lyrics_str = lyrics_str.lower().translate(str.maketrans('', '', string.punctuation))
   lyrics_arr = lyrics_str.split()
   seperator = ' '
   lyrics_training_set_elem = []
@@ -56,8 +56,7 @@ with training_data.open("w") as train_output, \
       test_output.write(fasttext_line + "\n")
     else:
       train_output.write(fasttext_line + "\n")
-    # end inner for
-  # end outer for
+
 # end with
 
 # print(labels)

@@ -4,3 +4,5 @@ lyrics_model.bin
 lyrics_model.vec
 lyrics_test_dataset.txt
 lyrics_training_dataset.txt
+
+/server/__pycache__
