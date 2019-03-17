@@ -43,7 +43,7 @@ for index, lyrics in enumerate(lyrics_training_set):
 random.shuffle(shuffled_lyrics_training_set)
 
 # What percent of data to save separately as test data
-percent_test_data = 0.10
+percent_test_data = 0.05
 
 training_data = Path('lyrics_training_dataset.txt')
 test_data = Path('lyrics_test_dataset.txt')

@@ -8,15 +8,15 @@ class TestApp(unittest.TestCase):
 
   def test_classify_lyrics_success(self):
     response = self.app.post('/classify-lyrics', json={
-      'lyrics': 'dynamite'
+      'lyrics': 'that you only meant well'
     })
     status = response.status_code
     self.assertEqual(status, 200)
     json_data = response.get_json()
-    self.assertEqual(json_data, {'artist': 'taio cruz', 'song': 'dynamite'})
+    self.assertEqual(json_data, {'artist': 'jason derulo', 'song': 'whatcha say'})
 
   def test_classify_lyrics_fail(self):
-    response = self.app.post('/classify-lyrics')
+    response = self.app.post('/classify-lyrics', json={})
     status = response.status_code
     self.assertEqual(status, 400)
     data = str(response.get_data())

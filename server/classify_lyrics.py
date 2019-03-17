@@ -1,13 +1,13 @@
 import fastText
 import string
 
+classifier = fastText.load_model('lyrics_model.bin')
+
 def strip_formatting(text):
     return text.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
 def classify_lyrics(lyrics):
-  preprocessed_lyrics = list(map(strip_formatting, lyrics))
-
-  classifier = fastText.load_model('lyrics_model.bin')
+  preprocessed_lyrics = [strip_formatting(lyrics)]
 
   # classify lyrics 
   labels, probabilities = classifier.predict(preprocessed_lyrics, 1)
